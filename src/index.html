@@ -4,9 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css" />
   <title>Social Network</title>
 </head>
 <body>
+  <main>
+      <section id="logueo">
+          <form class="formulario">
+            <input class="caja" id="email" placeholder="Email" type="text">
+            <input class="caja" id="password" placeholder="Password" type="password">
+          </form>
+            <div>
+              <button type="submit" id="ingresar">INGRESA</button>
+              <p>¿No tienes una cuenta?</p>
+              <button type="submit" id="registrar">REGISTRATE</button>
+              <p id="error"></p> 
+            </div>
+      </section>   
+      <section id= "registro" class="hide">
+        <form class="formulario">
+          <input class="caja" id= "name" placeholder="Nombre" type="text">
+          <input class="caja" id= "new-email" placeholder="Correo electrónico" type="text">
+          <input class="caja" id="new-password" placeholder="Contraseña nueva" type="password">
+          <button type="submit" id="registrarte">REGISTRAR</button>
+        </form>
+      </section> 
+  </main>
   <script type="module" src="main.js"></script>
 </body>
 </html>
