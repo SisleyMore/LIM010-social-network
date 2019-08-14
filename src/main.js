@@ -1,12 +1,48 @@
 const logueo = document.getElementById('logueo');
 const registro = document.getElementById('registro'); 
 const registrarte= document.getElementById('registrarte');
+const errorRegistro = document.getElementById('error-registro');
 // Este es el punto de entrada de tu aplicacion
 // import { myFunction } from './lib/index.js';
 
 // myFunction();
 const registrar = document.getElementById('registrar');
 const ingresar = document.getElementById('ingresar');
+
+registrar.addEventListener('click', () => {
+    logueo.classList.add('hide');
+    registro.classList.remove('hide');
+});
+
+const validarEmail = (email) => {
+    const expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return expr.test(email);
+};
+
+registrarte.addEventListener('click', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const newEmail = document.getElementById('new-email').value;
+    const newPassword = document.getElementById('new-password').value;
+
+
+    // Consultar la informacion de localStorage get
+
+    console.log(localStorage.getItem('nombre'));
+    console.log(localStorage.getItem('nuevoCorreo'));
+    console.log(localStorage.getItem('nuevaContrasena'));
+
+    if (validarEmail(newEmail) && newPassword.length >= 8) {
+        alert('correcto');
+         // guardo en locaLStorage Set
+        localStorage.setItem('nombre', name);
+        localStorage.setItem('nuevoCorreo', newEmail);
+        localStorage.setItem('nuevaContrasena', newPassword);
+    } else{
+        errorRegistro.innerHTML = '• Debes ingresar un correo electrónico válido <br> • La contraseña debe tener más de 8 carácteres'
+    }
+})
+
 // Evento para loguearse
 ingresar.addEventListener('click', () => {
     const email = document.getElementById('email').value;
@@ -19,30 +55,5 @@ ingresar.addEventListener('click', () => {
     console.log(localStorage.getItem('contrasena'));
 
 });
-
-registrar.addEventListener('click', () => {
-    logueo.classList.add('hide');
-    registro.classList.remove('hide');
-});
-
-registrarte.addEventListener('click', (e) => {
-    e.preventDefault();
- 
-    const name = document.getElementById('name').value;
-    const newEmail = document.getElementById('new-email').value;
-    const newPassword = document.getElementById('new-password').value;
-     // guardo en locaLStorage Set
-    if (name.length < 8){
-        alert('asd');
-    }
-    localStorage.setItem('nombre', name);
-    localStorage.setItem('nuevoCorreo', newEmail);
-    localStorage.setItem('nuevaContrasena', newPassword);
-    // Consultar la informacion de localStorage get
-    console.log(localStorage.getItem('nombre'));
-    console.log(localStorage.getItem('nuevoCorreo'));
-    console.log(localStorage.getItem('nuevaContrasena'));
-})
-
 
 
