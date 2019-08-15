@@ -2,6 +2,8 @@ const logueo = document.getElementById('logueo');
 const registro = document.getElementById('registro'); 
 const registrarte= document.getElementById('registrarte');
 const errorRegistro = document.getElementById('error-registro');
+const inicio = document.getElementById('inicio');
+const bienvenida =  document.getElementById('bienvenida');
 // Este es el punto de entrada de tu aplicacion
 // import { myFunction } from './lib/index.js';
 
@@ -11,7 +13,8 @@ const ingresar = document.getElementById('ingresar');
 
 registrar.addEventListener('click', () => {
     logueo.classList.add('hide');
-    registro.classList.remove('hide');
+    inicio.classList.add('hide');
+    registro.classList.remove('hide'); 
 });
 
 const validarEmail = (email) => {
@@ -39,6 +42,7 @@ registrarte.addEventListener('click', (e) => {
         localStorage.setItem('nuevaContrasena', newPassword);
         alert('Tu registro a sido exitoso');
         registro.classList.add('hide');
+        inicio.classList.add('hide');
         logueo.classList.remove('hide');
 
     } else{
@@ -58,7 +62,9 @@ ingresar.addEventListener('click', () => {
     // console.log(localStorage.getItem('contrasena'));
 
     if (localStorage.getItem('correo') === localStorage.getItem('nuevoCorreo') && localStorage.getItem('contrasena', password) === localStorage.getItem('nuevaContrasena')) {
-        alert('hola');
+        inicio.classList.remove('hide');
+        logueo.classList.add('hide');
+        bienvenida.innerHTML = localStorage.getItem('nombre');
     } else {
         alert('correo o contraseña incorrectos')
     }
