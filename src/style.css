@@ -1,3 +1,19 @@
 .hide{
 display: none;
 }
+/* .contenedor{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    align-items: baseline; 
+}
+.caja {
+    display: flex;
+    flex-direction: column;
+}
+.recuadro{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+} */

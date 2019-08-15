@@ -11,6 +11,10 @@ const bienvenida =  document.getElementById('bienvenida');
 const registrar = document.getElementById('registrar');
 const ingresar = document.getElementById('ingresar');
 
+//array para almacenar datos registrados.
+let users = [];
+let datos = {};
+
 registrar.addEventListener('click', () => {
     logueo.classList.add('hide');
     inicio.classList.add('hide');
@@ -37,10 +41,19 @@ registrarte.addEventListener('click', (e) => {
 
     if (validarEmail(newEmail) && newPassword.length >= 8) {
          // guardo en locaLStorage Set
+        datos.nameUser = name;
+        datos.emailUser = newEmail;
+        datos.passwordUser= newPassword;
+        users.push(datos);
+        console.log(users);
+        console.log(datos);
         localStorage.setItem('nombre', name);
         localStorage.setItem('nuevoCorreo', newEmail);
         localStorage.setItem('nuevaContrasena', newPassword);
+        
+        
         alert('Tu registro a sido exitoso');
+    
         registro.classList.add('hide');
         inicio.classList.add('hide');
         logueo.classList.remove('hide');

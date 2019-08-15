@@ -10,25 +10,25 @@
 <body>
   <main>
     <!-- Pantalla de Logueo -->
-      <section id="logueo">
+      <section id="logueo" class="contenedor">
           <form class="formulario">
             <input class="caja" id="email" placeholder="ejemplo@hotmail.com" type="text">
             <input class="caja" id="password" placeholder="Contraseña" type="password">
           </form>
-            <div>
+            <div id="recuadro">
               <button type="submit" id="ingresar">INGRESA</button>
               <p>¿No tienes una cuenta?</p>
-              <button type="submit" id="registrar">REGISTRATE</button>
+              <button class="buttons" type="submit" id="registrar">REGISTRATE</button>
               <p id="error"></p> 
             </div>
-    <!-- Pantalla de registro -->
-      </section>   
+      </section>
+      <!-- Pantalla de registro -->
       <section id= "registro" class="hide">
         <form class="formulario">
           <input class="caja" id= "name" placeholder="Nombre" type="text">
           <input class="caja" id= "new-email" placeholder="ejemplo@hotmail.com" type="email">
           <input class="caja" id="new-password" placeholder="Contraseña nueva" type="password">
-          <button type="submit" id="registrarte">REGISTRAR</button>
+          <button class="buttons" type="submit" id="registrarte">REGISTRAR</button>
           <p id = "error-registro" > </p>
         </form>
       </section> 
