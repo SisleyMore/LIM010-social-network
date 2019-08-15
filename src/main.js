@@ -26,18 +26,21 @@ registrarte.addEventListener('click', (e) => {
     const newPassword = document.getElementById('new-password').value;
 
 
-    // Consultar la informacion de localStorage get
+    // // Consultar la informacion de localStorage get
 
-    console.log(localStorage.getItem('nombre'));
-    console.log(localStorage.getItem('nuevoCorreo'));
-    console.log(localStorage.getItem('nuevaContrasena'));
+    // console.log(localStorage.getItem('nombre'));
+    // console.log(localStorage.getItem('nuevoCorreo'));
+    // console.log(localStorage.getItem('nuevaContrasena'));
 
     if (validarEmail(newEmail) && newPassword.length >= 8) {
-        alert('correcto');
          // guardo en locaLStorage Set
         localStorage.setItem('nombre', name);
         localStorage.setItem('nuevoCorreo', newEmail);
         localStorage.setItem('nuevaContrasena', newPassword);
+        alert('Tu registro a sido exitoso');
+        registro.classList.add('hide');
+        logueo.classList.remove('hide');
+
     } else{
         errorRegistro.innerHTML = '• Debes ingresar un correo electrónico válido <br> • La contraseña debe tener más de 8 carácteres'
     }
@@ -51,8 +54,18 @@ ingresar.addEventListener('click', () => {
     localStorage.setItem('correo', email);
     localStorage.setItem('contrasena', password);
     // Consultar la informacion de localStorage get
-    console.log(localStorage.getItem('correo'));
-    console.log(localStorage.getItem('contrasena'));
+    // console.log(localStorage.getItem('correo'));
+    // console.log(localStorage.getItem('contrasena'));
+
+    if (localStorage.getItem('correo') === localStorage.getItem('nuevoCorreo') && localStorage.getItem('contrasena', password) === localStorage.getItem('nuevaContrasena')) {
+        alert('hola');
+    } else {
+        alert('correo o contraseña incorrectos')
+    }
+    
+    
+    
+
 
 });
 
