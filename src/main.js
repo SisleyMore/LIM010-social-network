@@ -13,7 +13,6 @@ const ingresar = document.getElementById('ingresar');
 
 //array para almacenar datos registrados.
 let users = [];
-let datos = {};
 
 registrar.addEventListener('click', () => {
     logueo.classList.add('hide');
@@ -28,25 +27,15 @@ const validarEmail = (email) => {
 
 registrarte.addEventListener('click', (e) => {
     e.preventDefault();
-    const name = document.getElementById('name').value;
-    const newEmail = document.getElementById('new-email').value;
-    const newPassword = document.getElementById('new-password').value;
-
-
-    // // Consultar la informacion de localStorage get
-
-    // console.log(localStorage.getItem('nombre'));
-    // console.log(localStorage.getItem('nuevoCorreo'));
-    // console.log(localStorage.getItem('nuevaContrasena'));
-
-    if (validarEmail(newEmail) && newPassword.length >= 8) {
-         // guardo en locaLStorage Set
-        datos.nameUser = name;
-        datos.emailUser = newEmail;
-        datos.passwordUser= newPassword;
-        users.push(datos);
+    let name = document.getElementById('name')
+    let newEmail = document.getElementById('new-email')
+    let newPassword = document.getElementById('new-password')
+    if (validarEmail(newEmail.value) && newPassword.value.length >= 8) {
+        users.push({nameUser : name.value, emailUser: newEmail.value, passwordUser: newPassword.value});
+        name.value = '';
+        newEmail.value= '';
+        newPassword.value = '';
         console.log(users);
-        console.log(datos);
         localStorage.setItem('nombre', name);
         localStorage.setItem('nuevoCorreo', newEmail);
         localStorage.setItem('nuevaContrasena', newPassword);
