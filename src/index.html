@@ -11,23 +11,24 @@
   <main>
     <!-- Pantalla de Logueo -->
       <section id="logueo" class="contenedor">
+          <img class="logo" src="./lib/imagenes/logo-principal.jpeg" >
           <form class="formulario">
-            <input class="caja" id="email" placeholder="ejemplo@hotmail.com" type="text">
-            <input class="caja" id="password" placeholder="Contraseña" type="password">
+            <input class="inputs" id="email" placeholder="ejemplo@hotmail.com" type="text">
+            <input class="inputs" id="password" placeholder="Contraseña" type="password">
           </form>
-            <div id="recuadro">
-              <button type="submit" id="ingresar">INGRESA</button>
+            <div id="botones-logueo" class="recuadro">
+              <button class= "buttons" type="submit" id="ingresar">INGRESA</button>
               <p>¿No tienes una cuenta?</p>
-              <button class="buttons" type="submit" id="registrar">REGISTRATE</button>
+              <button class= "buttons" type="submit" id="registrar">REGISTRATE</button>
               <p id="error"></p> 
             </div>
       </section>
       <!-- Pantalla de registro -->
       <section id= "registro" class="hide">
         <form class="formulario">
-          <input class="caja" id= "name" placeholder="Nombre" type="text">
-          <input class="caja" id= "new-email" placeholder="ejemplo@hotmail.com" type="email">
-          <input class="caja" id="new-password" placeholder="Contraseña nueva" type="password">
+          <input class="inputs" id= "name" placeholder="Nombre" type="text">
+          <input class="inputs" id= "new-email" placeholder="ejemplo@hotmail.com" type="email">
+          <input class="inputs" id="new-password" placeholder="Contraseña nueva" type="password">
           <button class="buttons" type="submit" id="registrarte">REGISTRAR</button>
           <p id = "error-registro" > </p>
         </form>

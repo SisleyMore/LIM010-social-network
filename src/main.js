@@ -36,12 +36,9 @@ registrarte.addEventListener('click', (e) => {
         newEmail.value= '';
         newPassword.value = '';
         console.log(users);
-        localStorage.setItem('nombre', JSON.stringify(name));
-        localStorage.setItem('nuevoCorreo', newEmail);
-        localStorage.setItem('nuevaContrasena', newPassword);
-        
-        
-        alert('Tu registro a sido exitoso');
+        localStorage.setItem('users', JSON.stringify(users));
+
+            alert('Tu registro a sido exitoso');
     
         registro.classList.add('hide');
         inicio.classList.add('hide');
@@ -53,28 +50,38 @@ registrarte.addEventListener('click', (e) => {
 })
 
 // Evento para loguearse
+const validarDatos = (email, password) => {
+    return JSON.parse(localStorage.getItem('users')).filter(users =>
+         users.emailUser, users.passwordUser)
+}
+
+
 ingresar.addEventListener('click', () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    // guardo en locaLStorage Set
-    localStorage.setItem('correo', email);
-    localStorage.setItem('contrasena', password);
-    // Consultar la informacion de localStorage get
-    // console.log(localStorage.getItem('correo'));
-    // console.log(localStorage.getItem('contrasena'));
+    // const usersLocalStorage = JSON.parse(localStorage.getItem('users'));
+    // console.log(usersLocalStorage);
+    console.log(email)
+    console.log(password);
 
-    if (localStorage.getItem('correo') === localStorage.getItem('nuevoCorreo') && localStorage.getItem('contrasena', password) === localStorage.getItem('nuevaContrasena')) {
-        inicio.classList.remove('hide');
-        logueo.classList.add('hide');
-        bienvenida.innerHTML = localStorage.getItem('nombre');
-    } else {
-        alert('correo o contraseña incorrectos')
-    }
+    // for (let i = 0; i < localStorage.length; i++) {
+    //     if (usersLocalStorage[i].emailUser === email && usersLocalStorage[i].passwordUser === password) {
+    //         alert('Bienvenido');
+    //     inicio.classList.remove('hide');
+    //     logueo.classList.add('hide');
+    //     bienvenida.innerHTML = usersLocalStorage[i].nameUser;
+    //     } else{
+    //         alert('correo o contraseña incorrectas');
+    //     }      
+        
+    // }
+    validarDatos(email, password);
+    console.log(users);
     
-    
-    
-
 
 });
+
+
+
 
 
