@@ -36,7 +36,7 @@ registrarte.addEventListener('click', (e) => {
         newEmail.value= '';
         newPassword.value = '';
         console.log(users);
-        localStorage.setItem('nombre', name);
+        localStorage.setItem('nombre', JSON.stringify(name));
         localStorage.setItem('nuevoCorreo', newEmail);
         localStorage.setItem('nuevaContrasena', newPassword);
         
