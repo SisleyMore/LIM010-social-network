@@ -10,13 +10,13 @@
 <body>
   <main>
     <!-- Pantalla de Logueo -->
-      <section id="logueo" class="contenedor">
+      <section id="logueo" class="contenedor flex">
           <img class="logo" src="./lib/imagenes/logo-principal.jpeg" >
           <form class="formulario">
-            <input class="inputs" id="email" placeholder="ejemplo@hotmail.com" type="text">
-            <input class="inputs" id="password" placeholder="Contraseña" type="password">
+            <input class="inputs flex" id="email" placeholder="ejemplo@hotmail.com" type="text">
+            <input class="inputs flex" id="password" placeholder="Contraseña" type="password">
           </form>
-            <div id="botones-logueo" class="recuadro">
+            <div id="botones-logueo" class="recuadro flex">
               <button class= "buttons" type="submit" id="ingresar">INGRESA</button>
               <p>¿No tienes una cuenta?</p>
               <button class= "buttons" type="submit" id="registrar">REGISTRATE</button>
@@ -24,11 +24,11 @@
             </div>
       </section>
       <!-- Pantalla de registro -->
-      <section id= "registro" class="hide">
+      <section id= "registro" class="hide flex registro">
         <form class="formulario">
-          <input class="inputs" id= "name" placeholder="Nombre" type="text">
-          <input class="inputs" id= "new-email" placeholder="ejemplo@hotmail.com" type="email">
-          <input class="inputs" id="new-password" placeholder="Contraseña nueva" type="password">
+          <input class="inputs flex" id= "name" placeholder="Nombre" type="text">
+          <input class="inputs flex" id= "new-email" placeholder="ejemplo@hotmail.com" type="email">
+          <input class="inputs flex" id="new-password" placeholder="Contraseña nueva" type="password">
           <button class="buttons" type="submit" id="registrarte">REGISTRAR</button>
           <p id = "error-registro" > </p>
         </form>

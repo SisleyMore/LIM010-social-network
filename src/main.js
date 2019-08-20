@@ -17,7 +17,7 @@ let users = [];
 registrar.addEventListener('click', () => {
     logueo.classList.add('hide');
     inicio.classList.add('hide');
-    registro.classList.remove('hide'); 
+    registro.classList.remove('hide');
 });
 
 const validarEmail = (email) => {
@@ -50,33 +50,33 @@ registrarte.addEventListener('click', (e) => {
 })
 
 // Evento para loguearse
-const validarDatos = (email, password) => {
-    return JSON.parse(localStorage.getItem('users')).filter(users =>
-         users.emailUser, users.passwordUser)
-}
+// const validarDatos = (email, password) => {
+//     return JSON.parse(localStorage.getItem('users')).filter(users =>
+//          users.emailUser, users.passwordUser)
+// }
 
 
 ingresar.addEventListener('click', () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    // const usersLocalStorage = JSON.parse(localStorage.getItem('users'));
-    // console.log(usersLocalStorage);
+    const usersLocalStorage = JSON.parse(localStorage.getItem('users'));
+    console.log(usersLocalStorage);
     console.log(email)
     console.log(password);
 
-    // for (let i = 0; i < localStorage.length; i++) {
-    //     if (usersLocalStorage[i].emailUser === email && usersLocalStorage[i].passwordUser === password) {
-    //         alert('Bienvenido');
-    //     inicio.classList.remove('hide');
-    //     logueo.classList.add('hide');
-    //     bienvenida.innerHTML = usersLocalStorage[i].nameUser;
-    //     } else{
-    //         alert('correo o contraseña incorrectas');
-    //     }      
+    for (let i = 0; i < localStorage.length; i++) {
+        if (usersLocalStorage[i].emailUser === email && usersLocalStorage[i].passwordUser === password) {
+            alert('Bienvenido');
+        inicio.classList.remove('hide');
+        logueo.classList.add('hide');
+        bienvenida.innerHTML = usersLocalStorage[i].nameUser;
+        } else{
+            alert('correo o contraseña incorrectas');
+        }      
         
-    // }
-    validarDatos(email, password);
-    console.log(users);
+    }
+    // validarDatos(email, password);
+    // console.log(users);
     
 
 });

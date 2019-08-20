@@ -1,15 +1,18 @@
-.hide{
-    display: none;
-    }
+
     .contenedor{
-        display: flex;
         flex-direction: column;
         flex-wrap: wrap-reverse;
-        justify-content: center;
+        justify-content: center;   
         align-items: center; 
+        
+    }
+    .registro{
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap-reverse;
+        justify-content: center;
     }
     .inputs {
-        display: flex;
         flex-direction: column;
         font-size: 18px;
         width: 250px;
@@ -20,7 +23,6 @@
         border: 1px solid hsl(341, 89%, 61%);
     }
     .recuadro{
-        display: flex;
         align-items: center;
         flex-direction: column;
         margin-top: 25px;
@@ -31,10 +33,20 @@
         height: 40px;
         width: 180px;
         border: 1px;
+        margin-top: 15px;
     }
     .logo{
         width: 50%;
         max-width: 500px;
         min-width: 300px;
         background-size: cover;
+    }
+    .flex{
+        display: flex;
+    }
+    /* .block{
+        display: block;
+    } */
+    .hide{
+        display: none;
     }
