@@ -50,12 +50,6 @@ registrarte.addEventListener('click', (e) => {
 })
 
 // Evento para loguearse
-// const validarDatos = (email, password) => {
-//     return JSON.parse(localStorage.getItem('users')).filter(users =>
-//          users.emailUser, users.passwordUser)
-// }
-
-
 ingresar.addEventListener('click', () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -75,11 +69,12 @@ ingresar.addEventListener('click', () => {
         }      
         
     }
-    // validarDatos(email, password);
-    // console.log(users);
-    
-
 });
+// const validarDatos = () => {
+//     return JSON.parse(localStorage.getItem('users')).filter(users=>
+//         users.length < 8)
+         
+console.log(users);
 
 
 
