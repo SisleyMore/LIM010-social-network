@@ -10,6 +10,7 @@ const bienvenida =  document.getElementById('bienvenida');
 // myFunction();
 const registrar = document.getElementById('registrar');
 const ingresar = document.getElementById('ingresar');
+const registroExisto = document.getElementById('registro-exitoso');
 
 //array para almacenar datos registrados.
 let users = [];
@@ -37,9 +38,7 @@ registrarte.addEventListener('click', (e) => {
         newPassword.value = '';
         console.log(users);
         localStorage.setItem('users', JSON.stringify(users));
-
-            alert('Tu registro a sido exitoso');
-    
+        registroExisto.innerHTML = 'Tu registro a sido exitoso';
         registro.classList.add('hide');
         inicio.classList.add('hide');
         logueo.classList.remove('hide');

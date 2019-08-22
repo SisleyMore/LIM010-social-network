@@ -1,4 +1,6 @@
-
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
     .contenedor{
         flex-direction: column;
         flex-wrap: wrap-reverse;
@@ -35,11 +37,12 @@
         width: 180px;
         border: 1px;
         margin-top: 15px;
+        outline: none;
         color: white;
         background-color:  #23b574;
     }
     .logo{
-        width: 50%;
+        width: 100%;
         max-width: 500px;
         min-width: 300px;
         background-size: cover;
@@ -47,6 +50,10 @@
     .azul{
         color: #3897f0;
         text-decoration: none;
+    }
+    .error {
+        color: #ed4956;
+        font-size: 17px;
     }
     .bold{
         font-weight: 600;
