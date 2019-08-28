@@ -12,8 +12,13 @@ const registrar = document.getElementById('registrar');
 const ingresar = document.getElementById('ingresar');
 const registroExisto = document.getElementById('registro-exitoso');
 
+//Pantalla de publicaciones
+const publicarPost = document.getElementById('publicar-post');
+const postPublicado = document.getElementById('post-publicado');
+
 //array para almacenar datos registrados.
 let users = [];
+let arrayPost = [];
 
 registrar.addEventListener('click', () => {
     logueo.classList.add('hide');
@@ -59,7 +64,6 @@ ingresar.addEventListener('click', () => {
 
     for (let i = 0; i < localStorage.length; i++) {
         if (usersLocalStorage[i].emailUser === email && usersLocalStorage[i].passwordUser === password) {
-            alert('Bienvenido');
         inicio.classList.remove('hide');
         logueo.classList.add('hide');
         bienvenida.innerHTML = usersLocalStorage[i].nameUser;
@@ -72,8 +76,31 @@ ingresar.addEventListener('click', () => {
 // const validarDatos = () => {
 //     return JSON.parse(localStorage.getItem('users')).filter(users=>
 //         users.length < 8)
-         
-console.log(users);
+
+//Evento para publicar post
+publicarPost.addEventListener('click', () => {
+    const postNuevo = document.getElementById('post-nuevo').value;
+    arrayPost.push(postNuevo);
+    localStorage.setItem('post', JSON.stringify(arrayPost));
+    const arrLocalStorage = JSON.parse(localStorage.getItem('post'));
+    const newArrayPost = arrayPost.concat(arrLocalStorage)
+    for (let i = 0; i < newArrayPost.length; i++) {
+        
+        postPublicado.innerHTML = `<textarea id="post-publicado" cols="50" rows="10" >${newArrayPost[i]}</textarea>`;        
+    }
+    
+    // const newArrayPost = arrayPost.concat(arrLocalStorage)
+    // if (arrLocalStorage != null && postNuevo != null) {
+    // for (let i = 0; i < newArrayPost.length; i++) {
+        
+    //     postPublicado.innerHTML = newAarrayPost[i];
+        
+    // }
+        
+    // }
+    
+
+});
 
 
 
