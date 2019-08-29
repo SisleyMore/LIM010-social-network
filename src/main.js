@@ -14,7 +14,8 @@ const registroExisto = document.getElementById('registro-exitoso');
 
 //Pantalla de publicaciones
 const publicarPost = document.getElementById('publicar-post');
-const postPublicado = document.getElementById('post-publicado');
+let postPublicados = document.getElementById('post-publicados');
+let postGuardado = document.getElementById('post-guardado');
 
 //array para almacenar datos registrados.
 let users = [];
@@ -80,26 +81,24 @@ ingresar.addEventListener('click', () => {
 //Evento para publicar post
 publicarPost.addEventListener('click', () => {
     const postNuevo = document.getElementById('post-nuevo').value;
-    arrayPost.push(postNuevo);
-    localStorage.setItem('post', JSON.stringify(arrayPost));
-    const arrLocalStorage = JSON.parse(localStorage.getItem('post'));
-    const newArrayPost = arrayPost.concat(arrLocalStorage)
-    for (let i = 0; i < newArrayPost.length; i++) {
+    if (postNuevo != '') {
+        arrayPost.push(postNuevo);
+        localStorage.setItem('post', JSON.stringify(arrayPost));
+        postPublicados.innerHTML = '';
+        for (let i = 0; i < arrayPost.length; i++) {
+            postPublicados.innerHTML += `<textarea id="post-guardado" cols="50" rows="10" >${arrayPost[i]}</textarea>`; 
+        }
         
-        postPublicado.innerHTML = `<textarea id="post-publicado" cols="50" rows="10" >${newArrayPost[i]}</textarea>`;        
-    }
-    
-    // const newArrayPost = arrayPost.concat(arrLocalStorage)
-    // if (arrLocalStorage != null && postNuevo != null) {
-    // for (let i = 0; i < newArrayPost.length; i++) {
-        
-    //     postPublicado.innerHTML = newAarrayPost[i];
-        
-    // }
-        
-    // }
-    
-
+   } else if (postNuevo != '' && localStorage.getItem('post') != null) {
+        const arrLocalStorage = JSON.parse(localStorage.getItem('post'));
+        arrayPost.push(arrLocalStorage);
+        const newArrayPost = arrayPost.concat(arrLocalStorage);
+        localStorage.setItem('post', JSON.stringify(newArrayPost));
+        postPublicados.innerHTML = '';
+        for (let i = 0; i < newArrayPost.length; i++) {
+            postPublicados.innerHTML += `<textarea id="post-guardado" cols="50" rows="10" >${newArrayPost[i]}</textarea>`; 
+        }
+   }
 });
 
 
