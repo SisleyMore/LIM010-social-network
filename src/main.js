@@ -55,7 +55,8 @@ registrarte.addEventListener('click', (e) => {
 })
 
 // Evento para loguearse
-ingresar.addEventListener('click', () => {
+ingresar.addEventListener('click', (a) => {
+    a.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const usersLocalStorage = JSON.parse(localStorage.getItem('users'));
