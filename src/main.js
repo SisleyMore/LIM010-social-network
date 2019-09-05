@@ -89,19 +89,24 @@ publicarPost.addEventListener('click', () => {
         for (let i = 0; i < arrayPost.length; i++) {
             postPublicados.innerHTML += `<textarea id="post-guardado" cols="50" rows="10" >${arrayPost[i]}</textarea>`; 
         }
-        
-   } else if (postNuevo != '' && localStorage.getItem('post') != null) {
-        const arrLocalStorage = JSON.parse(localStorage.getItem('post'));
-        arrayPost.push(arrLocalStorage);
-        const newArrayPost = arrayPost.concat(arrLocalStorage);
-        localStorage.setItem('post', JSON.stringify(newArrayPost));
-        postPublicados.innerHTML = '';
-        for (let i = 0; i < newArrayPost.length; i++) {
-            postPublicados.innerHTML += `<textarea id="post-guardado" cols="50" rows="10" >${newArrayPost[i]}</textarea>`; 
-        }
-   }
+    }else if (localStorage.getItem('post') != null && postNuevo != ''){
+       alert("funciona")
+       const postGuardadosLocal = JSON.parse(localStorage.getItem('post'));
+       const newArrPost = postGuardadosLocal.concat(arrayPost);
+       newArrPost.push(postNuevo);
+       localStorage.setItem ('post', JSON.stringify(newArrPost));
+       }
 });
 
+        // const arrLocalStorage = JSON.parse(localStorage.getItem('post'));
+        // const newArrayPost = arrayPost.concat(arrLocalStorage);
+        // arrayPost.push(arrLocalStorage);
+        // localStorage.setItem('post', JSON.stringify(newArrayPost));
+        // postPublicados.innerHTML = '';
+        // for (let i = 0; i < newArrayPost.length; i++) {
+        //     postPublicados.innerHTML += `<textarea id="post-guardado" cols="50" rows="10" >${newArrayPost[i]}</textarea>`; 
+        // }
+ 
 
 
 
