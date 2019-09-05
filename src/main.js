@@ -16,6 +16,7 @@ const registroExisto = document.getElementById('registro-exitoso');
 const publicarPost = document.getElementById('publicar-post');
 let postPublicados = document.getElementById('post-publicados');
 let postGuardado = document.getElementById('post-guardado');
+const removePost =  document.getElementById('remove-post');
 
 //array para almacenar datos registrados.
 let users = [];
@@ -69,9 +70,9 @@ ingresar.addEventListener('click', (a) => {
         inicio.classList.remove('hide');
         logueo.classList.add('hide');
         bienvenida.innerHTML = usersLocalStorage[i].nameUser;
-        } else{
-            alert('correo o contraseña incorrectas');
-        }      
+        } else {
+            alert('correo o contraseña incorrectas')
+        }
         
     }
 });
@@ -82,32 +83,27 @@ ingresar.addEventListener('click', (a) => {
 //Evento para publicar post
 publicarPost.addEventListener('click', () => {
     const postNuevo = document.getElementById('post-nuevo').value;
-    if (postNuevo != '') {
+    if (localStorage.getItem('post') != null && postNuevo != ''){
+        let postGuardadosLocal = JSON.parse(localStorage.getItem('post'));
+        arrayPost.push(postNuevo); 
+        const newArrPost = postGuardadosLocal.concat(arrayPost);
+        localStorage.setItem ('post', JSON.stringify(newArrPost));
+        postPublicados.innerHTML = '';
+       for (let i = 0; i < newArrPost.length; i++) {
+            postPublicados.innerHTML += `<div class='template-post'><textarea id="post-guardado" cols="50" rows="10" >${newArrPost[i]}</textarea> 
+            <img id= "remove-post" class="icono-remove" src="./lib/imagenes/icono-remove.png"><img class="icono-edit" src="./lib/imagenes/icono-edit.png"></div>`; 
+        }
+    } else if (postNuevo != '') {
         arrayPost.push(postNuevo);
         localStorage.setItem('post', JSON.stringify(arrayPost));
         postPublicados.innerHTML = '';
-        for (let i = 0; i < arrayPost.length; i++) {
-            postPublicados.innerHTML += `<textarea id="post-guardado" cols="50" rows="10" >${arrayPost[i]}</textarea>`; 
-        }
-    }else if (localStorage.getItem('post') != null && postNuevo != ''){
-       alert("funciona")
-       const postGuardadosLocal = JSON.parse(localStorage.getItem('post'));
-       const newArrPost = postGuardadosLocal.concat(arrayPost);
-       newArrPost.push(postNuevo);
-       localStorage.setItem ('post', JSON.stringify(newArrPost));
-       }
+            postPublicados.innerHTML = `<div class='template-post'><textarea id="post-guardado" cols="50" rows="10" >${arrayPost}</textarea> 
+            <img class="icono-remove" src="./lib/imagenes/icono-remove.png"><img class="icono-edit" src="./lib/imagenes/icono-edit.png"></div>`;
+    }
 });
 
-        // const arrLocalStorage = JSON.parse(localStorage.getItem('post'));
-        // const newArrayPost = arrayPost.concat(arrLocalStorage);
-        // arrayPost.push(arrLocalStorage);
-        // localStorage.setItem('post', JSON.stringify(newArrayPost));
-        // postPublicados.innerHTML = '';
-        // for (let i = 0; i < newArrayPost.length; i++) {
-        //     postPublicados.innerHTML += `<textarea id="post-guardado" cols="50" rows="10" >${newArrayPost[i]}</textarea>`; 
-        // }
- 
-
-
+removePost.addEventListener('click', () => {
+    alert('borrar');
+});
 
 

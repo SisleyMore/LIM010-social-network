@@ -58,6 +58,14 @@
     .bold{
         font-weight: 600;
     }
+    .icono-remove{
+        height: 25px;
+        width: 25px;
+    }
+    .icono-edit{
+        height: 20px;
+        width: 20px;
+    }
     .flex{
         display: flex;
     }
