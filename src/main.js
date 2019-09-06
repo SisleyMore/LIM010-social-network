@@ -80,13 +80,11 @@ ingresar.addEventListener('click', (a) => {
 //     return JSON.parse(localStorage.getItem('users')).filter(users=>
 //         users.length < 8)
 
-//Evento para publicar post
 publicarPost.addEventListener('click', () => {
-    const postNuevo = document.getElementById('post-nuevo').value;
+    let postNuevo = document.getElementById('post-nuevo').value;
     if (localStorage.getItem('post') != null && postNuevo != ''){
         let postGuardadosLocal = JSON.parse(localStorage.getItem('post'));
-        arrayPost.push(postNuevo); 
-        const newArrPost = postGuardadosLocal.concat(arrayPost);
+        const newArrPost = postGuardadosLocal.concat(postNuevo);
         localStorage.setItem ('post', JSON.stringify(newArrPost));
         postPublicados.innerHTML = '';
        for (let i = 0; i < newArrPost.length; i++) {
@@ -102,8 +100,5 @@ publicarPost.addEventListener('click', () => {
     }
 });
 
-removePost.addEventListener('click', () => {
-    alert('borrar');
-});
 
 
