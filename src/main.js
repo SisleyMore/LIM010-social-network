@@ -16,11 +16,14 @@ const registroExisto = document.getElementById('registro-exitoso');
 const publicarPost = document.getElementById('publicar-post');
 let postPublicados = document.getElementById('post-publicados');
 let postGuardado = document.getElementById('post-guardado');
-const removePost =  document.getElementById('remove-post');
 
 //array para almacenar datos registrados.
 let users = [];
 let arrayPost = [];
+
+// document.getElementById('cerrar').addEventListener('click', () => {
+//     document.getElementById('modal').classList.add('hide');
+//  });
 
 registrar.addEventListener('click', () => {
     logueo.classList.add('hide');
@@ -45,8 +48,9 @@ registrarte.addEventListener('click', (e) => {
         newPassword.value = '';
         console.log(users);
         localStorage.setItem('users', JSON.stringify(users));
-        registroExisto.innerHTML = 'Tu registro a sido exitoso';
+        registroExisto.innerHTML = 'Tu registro ha sido exitoso';
         registro.classList.add('hide');
+        // modal.classList.remove('hide');
         inicio.classList.add('hide');
         logueo.classList.remove('hide');
 
@@ -76,9 +80,6 @@ ingresar.addEventListener('click', (a) => {
         
     }
 });
-// const validarDatos = () => {
-//     return JSON.parse(localStorage.getItem('users')).filter(users=>
-//         users.length < 8)
 
 publicarPost.addEventListener('click', () => {
     let postNuevo = document.getElementById('post-nuevo').value;
@@ -89,16 +90,27 @@ publicarPost.addEventListener('click', () => {
         postPublicados.innerHTML = '';
        for (let i = 0; i < newArrPost.length; i++) {
             postPublicados.innerHTML += `<div class='template-post'><textarea id="post-guardado" cols="50" rows="10" >${newArrPost[i]}</textarea> 
-            <img id= "remove-post" class="icono-remove" src="./lib/imagenes/icono-remove.png"><img class="icono-edit" src="./lib/imagenes/icono-edit.png"></div>`; 
+            <img id=${i} class="icono-remove" name = "remove" src="./lib/imagenes/icono-remove.png"><img id=${i} name= "edit" class="icono-edit" src="./lib/imagenes/icono-edit.png"></div>`; 
         }
     } else if (postNuevo != '') {
         arrayPost.push(postNuevo);
         localStorage.setItem('post', JSON.stringify(arrayPost));
         postPublicados.innerHTML = '';
             postPublicados.innerHTML = `<div class='template-post'><textarea id="post-guardado" cols="50" rows="10" >${arrayPost}</textarea> 
-            <img class="icono-remove" src="./lib/imagenes/icono-remove.png"><img class="icono-edit" src="./lib/imagenes/icono-edit.png"></div>`;
+            <img class= "icono-remove" name = "remove" src="./lib/imagenes/icono-remove.png"><img class="icono-edit" name= "edit" src="./lib/imagenes/icono-edit.png"></div>`;
     }
 });
 
+postPublicados.addEventListener('click', (event) => {
+    const obtenerId = event.target.id;
+    const obtenerName = event.target.name;
+    console.log(obtenerId);
+    console.log(obtenerName);
+    if (obtenerName === "remove") {
+        const postGuardados = JSON.parse(localStorage.getItem('post'));
+        console.log(postGuardados);
+        
 
+   }
+});
 
