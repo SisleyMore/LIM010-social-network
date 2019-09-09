@@ -4,6 +4,9 @@ const registrarte= document.getElementById('registrarte');
 const errorRegistro = document.getElementById('error-registro');
 const inicio = document.getElementById('inicio');
 const bienvenida =  document.getElementById('bienvenida');
+const menu = document.getElementById('menu');
+const nombreUsuario = document.getElementById('nombre-usuario');
+const cerrarSesion = document.getElementById('cerrar-sesion');
 // Este es el punto de entrada de tu aplicacion
 // import { myFunction } from './lib/index.js';
 
@@ -12,10 +15,11 @@ const registrar = document.getElementById('registrar');
 const ingresar = document.getElementById('ingresar');
 const registroExisto = document.getElementById('registro-exitoso');
 
-//Pantalla de publicaciones
+//Pantalla de 
+let escribirPost = document.getElementById('escribir-post');
 const publicarPost = document.getElementById('publicar-post');
 let postPublicados = document.getElementById('post-publicados');
-let postGuardado = document.getElementById('post-guardado');
+let postGuardado = document.getElementsByName('post-guardado');
 
 //array para almacenar datos registrados.
 let users = [];
@@ -29,6 +33,10 @@ registrar.addEventListener('click', () => {
     logueo.classList.add('hide');
     inicio.classList.add('hide');
     registro.classList.remove('hide');
+});
+
+cerrarSesion.addEventListener('click', () => {
+    location.reload();
 });
 
 const validarEmail = (email) => {
@@ -73,7 +81,8 @@ ingresar.addEventListener('click', (a) => {
         if (usersLocalStorage[i].emailUser === email && usersLocalStorage[i].passwordUser === password) {
         inicio.classList.remove('hide');
         logueo.classList.add('hide');
-        bienvenida.innerHTML = usersLocalStorage[i].nameUser;
+        menu.classList.remove('hide');
+        nombreUsuario.innerHTML = usersLocalStorage[i].nameUser;
         } else {
             alert('correo o contraseña incorrectas')
         }
@@ -82,23 +91,28 @@ ingresar.addEventListener('click', (a) => {
 });
 
 publicarPost.addEventListener('click', () => {
-    let postNuevo = document.getElementById('post-nuevo').value;
+    let postNuevo = escribirPost.value;
     if (localStorage.getItem('post') != null && postNuevo != ''){
         let postGuardadosLocal = JSON.parse(localStorage.getItem('post'));
         const newArrPost = postGuardadosLocal.concat(postNuevo);
         localStorage.setItem ('post', JSON.stringify(newArrPost));
         postPublicados.innerHTML = '';
        for (let i = 0; i < newArrPost.length; i++) {
-            postPublicados.innerHTML += `<div class='template-post'><textarea id="post-guardado" cols="50" rows="10" >${newArrPost[i]}</textarea> 
-            <img id=${i} class="icono-remove" name = "remove" src="./lib/imagenes/icono-remove.png"><img id=${i} name= "edit" class="icono-edit" src="./lib/imagenes/icono-edit.png"></div>`; 
+            postPublicados.innerHTML += `<div class='template-post'><textarea id="post-guardado" class="text-area" name="post-guardado" readonly="true" cols="50" rows="10" >${newArrPost[i]}</textarea> 
+            <img id=${i} class="icono-remove" name = "remove" src="./lib/imagenes/icono-remove.png"><img id=${i} name= "edit" class="icono-edit" src="./lib/imagenes/icono-edit.png">
+            <img id=${i} name= "save" class="icono-remove" src="./lib/imagenes/icono-save.png"></div>`; 
         }
+        escribirPost.value = '';
+    
     } else if (postNuevo != '') {
         arrayPost.push(postNuevo);
         localStorage.setItem('post', JSON.stringify(arrayPost));
         postPublicados.innerHTML = '';
-            postPublicados.innerHTML = `<div class='template-post'><textarea id="post-guardado" cols="50" rows="10" >${arrayPost}</textarea> 
-            <img class= "icono-remove" name = "remove" src="./lib/imagenes/icono-remove.png"><img class="icono-edit" name= "edit" src="./lib/imagenes/icono-edit.png"></div>`;
+            postPublicados.innerHTML = `<div class='template-post'><textarea id="post-guardado" class="text-area" name="post-guardado" readonly="true" cols="50" rows="10" >${arrayPost}</textarea> 
+            <img class= "icono-remove" name = "remove" src="./lib/imagenes/icono-remove.png"><img class="icono-edit" name= "edit" src="./lib/imagenes/icono-edit.png">
+            <img name= "save" class="icono-remove" src="./lib/imagenes/icono-save.png"></div>`;
     }
+        escribirPost.value = '';
 });
 
 postPublicados.addEventListener('click', (event) => {
@@ -106,11 +120,31 @@ postPublicados.addEventListener('click', (event) => {
     const obtenerName = event.target.name;
     console.log(obtenerId);
     console.log(obtenerName);
-    if (obtenerName === "remove") {
+    if (obtenerName == "remove") {
         const postGuardados = JSON.parse(localStorage.getItem('post'));
         console.log(postGuardados);
-        
-
+        console.log(postGuardados.splice(obtenerId,1));
+        console.log(postGuardados);
+        localStorage.setItem('post', JSON.stringify(postGuardados));
+        postPublicados.innerHTML = '';
+        for (let i = 0; i < postGuardados.length; i++) {
+            postPublicados.innerHTML += `<div class='template-post'><textarea id="post-guardado" class="text-area" name="post-guardado" readonly="true" cols="50" rows="10" >${postGuardados[i]}</textarea> 
+            <img id=${i} class="icono-remove" name = "remove" src="./lib/imagenes/icono-remove.png"><img id=${i} name= "edit" class="icono-edit" src="./lib/imagenes/icono-edit.png">
+            <img id=${i} name= "save" class="icono-remove" src="./lib/imagenes/icono-save.png"></div>`;
+        }
+   }else if (obtenerName == "edit") {
+        postGuardado[obtenerId].removeAttribute('readonly');
+   }else if (obtenerName == "save"){
+        const postEditados = JSON.parse(localStorage.getItem('post'));
+        console.log(postEditados.splice(obtenerId,1,postGuardado[obtenerId].value));
+        console.log(postEditados);
+        localStorage.setItem('post', JSON.stringify(postEditados));
+        postPublicados.innerHTML = '';
+        for (let i = 0; i < postEditados.length; i++) {
+            postPublicados.innerHTML += `<div class='template-post'><textarea id="post-guardado" class="text-area" name="post-guardado" readonly="true" cols="50" rows="10" >${postEditados[i]}</textarea> 
+            <img id=${i} class="icono-remove" name = "remove" src="./lib/imagenes/icono-remove.png"><img id=${i} name= "edit" class="icono-edit" src="./lib/imagenes/icono-edit.png">
+            <img id=${i} name= "save" class="icono-remove" src="./lib/imagenes/icono-save.png"></div>`;
+        }
    }
 });
 
