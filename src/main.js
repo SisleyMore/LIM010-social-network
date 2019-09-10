@@ -85,7 +85,7 @@ ingresar.addEventListener('click', (a) => {
         nombreUsuario.innerHTML = usersLocalStorage[i].nameUser;
         let postUsuarioGuardado = JSON.parse(localStorage.getItem('post'));
         for (let x = 0; x < postUsuarioGuardado.length; x++) {
-            postPublicados.innerHTML += `<div class='template-post flex'><textarea id="post-guardado" class="text-area" name="post-guardado" readonly="true">${postUsuarioGuardado[i]}</textarea> 
+            postPublicados.innerHTML += `<div class='template-post flex'><textarea id="post-guardado" class="text-area flex" name="post-guardado" readonly="true">${postUsuarioGuardado[i]}</textarea> 
             <div class="iconos flex"><img id=${i} name= "edit" class="icono-edit" src="./lib/imagenes/icono-edit.png"><img id=${i} name= "save" class="icono-remove" src="./lib/imagenes/icono-save.png">
             <img id=${i} class="icono-remove" name = "remove" src="./lib/imagenes/icono-remove.png"></div></div>`; 
         }
@@ -104,7 +104,7 @@ publicarPost.addEventListener('click', () => {
         localStorage.setItem ('post', JSON.stringify(newArrPost));
         postPublicados.innerHTML = '';
        for (let i = 0; i < newArrPost.length; i++) {
-            postPublicados.innerHTML += `<div class='template-post flex'><textarea id="post-guardado" class="text-area" name="post-guardado" readonly="true">${newArrPost[i]}</textarea> 
+            postPublicados.innerHTML += `<div class='template-post flex'><textarea id="post-guardado" class="text-area flex" name="post-guardado" readonly="true">${newArrPost[i]}</textarea> 
             <div class="iconos flex"><img id=${i} name= "edit" class="icono-edit" src="./lib/imagenes/icono-edit.png"><img id=${i} name= "save" class="icono-remove" src="./lib/imagenes/icono-save.png">
             <img id=${i} class="icono-remove" name = "remove" src="./lib/imagenes/icono-remove.png"></div></div>`; 
         }
@@ -114,7 +114,7 @@ publicarPost.addEventListener('click', () => {
         arrayPost.push(postNuevo);
         localStorage.setItem('post', JSON.stringify(arrayPost));
         postPublicados.innerHTML = '';
-            postPublicados.innerHTML = `<div class='template-post flex'><textarea id="post-guardado" class="text-area" name="post-guardado" readonly="true">${arrayPost}</textarea> 
+            postPublicados.innerHTML = `<div class='template-post flex'><textarea id="post-guardado" class="text-area flex" name="post-guardado" readonly="true">${arrayPost}</textarea> 
             <div class="iconos flex"><img name= "edit" class="icono-edit" src="./lib/imagenes/icono-edit.png"><img name= "save" class="icono-remove" src="./lib/imagenes/icono-save.png">
             <img class="icono-remove" name = "remove" src="./lib/imagenes/icono-remove.png"></div></div>`; 
     }
@@ -134,7 +134,7 @@ postPublicados.addEventListener('click', (event) => {
         localStorage.setItem('post', JSON.stringify(postGuardados));
         postPublicados.innerHTML = '';
         for (let i = 0; i < postGuardados.length; i++) {
-            postPublicados.innerHTML += `<div class='template-post flex'><textarea id="post-guardado" class="text-area" name="post-guardado" readonly="true">${postGuardados[i]}</textarea> 
+            postPublicados.innerHTML += `<div class='template-post flex'><textarea id="post-guardado" class="text-area flex" name="post-guardado" readonly="true">${postGuardados[i]}</textarea> 
             <div class="iconos flex"><img id=${i} name= "edit" class="icono-edit" src="./lib/imagenes/icono-edit.png"><img id=${i} name= "save" class="icono-remove" src="./lib/imagenes/icono-save.png">
             <img id=${i} class="icono-remove" name = "remove" src="./lib/imagenes/icono-remove.png"></div></div>`; 
         }
@@ -147,7 +147,7 @@ postPublicados.addEventListener('click', (event) => {
         localStorage.setItem('post', JSON.stringify(postEditados));
         postPublicados.innerHTML = '';
         for (let i = 0; i < postEditados.length; i++) {
-            postPublicados.innerHTML += `<div class='template-post flex'><textarea id="post-guardado" class="text-area" name="post-guardado" readonly="true">${postEditados[i]}</textarea> 
+            postPublicados.innerHTML += `<div class='template-post flex'><textarea id="post-guardado" class="text-area flex" name="post-guardado" readonly="true">${postEditados[i]}</textarea> 
             <div class="iconos flex"><img id=${i} name= "edit" class="icono-edit" src="./lib/imagenes/icono-edit.png"><img id=${i} name= "save" class="icono-remove" src="./lib/imagenes/icono-save.png">
             <img id=${i} class="icono-remove" name = "remove" src="./lib/imagenes/icono-remove.png"></div></div>`; 
         }
