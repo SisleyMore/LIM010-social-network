@@ -22,8 +22,8 @@
             <input class="inputs flex" id="password" placeholder="Contraseña" type="password">
             <div id="botones-logueo" class="recuadro flex">
               <button class= "buttons verde bold" type="submit" id="ingresar">INGRESA</button>
-              <p>¿No tienes una cuenta? <a href="#" id="registrar" class="azul bold">Regístrate</a></p>
-              <p id="error"></p>
+              <p class="flex">¿No tienes una cuenta? <a href="#" id="registrar" class="azul bold">Regístrate</a></p>
+              <p id="error" class="error"></p>
               <p id= "registro-exitoso"></p>
             </div>
           </form>
@@ -47,8 +47,9 @@
     </section> -->
     <!-- Pantalla de inicio -->
     <section id= "inicio" class="perfil flex hide">
-      <p id= "bienvenida" ></p>
+      <p id= "bienvenida"></p>
       <textarea id="escribir-post" class= "text-area"></textarea>
+      <input type="file" id="subir-imagen">
       <button class="btn-postear bold" type="submit" id="publicar-post">Publicar</button>
       <div id="post-publicados" class="posts"></div>
     </section>

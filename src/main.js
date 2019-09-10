@@ -14,12 +14,14 @@ const cerrarSesion = document.getElementById('cerrar-sesion');
 const registrar = document.getElementById('registrar');
 const ingresar = document.getElementById('ingresar');
 const registroExisto = document.getElementById('registro-exitoso');
+const error = document.getElementById('error');
 
 //Pantalla de 
 let escribirPost = document.getElementById('escribir-post');
 const publicarPost = document.getElementById('publicar-post');
 let postPublicados = document.getElementById('post-publicados');
 let postGuardado = document.getElementsByName('post-guardado');
+const subirImagen = document.getElementById('subir-imagen');
 
 //array para almacenar datos registrados.
 let users = [];
@@ -90,7 +92,7 @@ ingresar.addEventListener('click', (a) => {
             <img id=${i} class="icono-remove" name = "remove" src="./lib/imagenes/icono-remove.png"></div></div>`; 
         }
         } else {
-            alert('correo o contraseña incorrectas')
+            error.innerHTML = 'correo o contraseña incorrectas';
         }
         
     }
@@ -154,3 +156,6 @@ postPublicados.addEventListener('click', (event) => {
    }
 });
 
+subirImagen.addEventListener('change', () =>{
+    alert('subiste una imagen');
+})

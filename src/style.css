@@ -16,7 +16,7 @@ body {
 }
 .contenedor{
     flex-direction: column;
-    flex-wrap: wrap-reverse;
+    /* flex-wrap: wrap-reverse; */
     justify-content: center;   
     align-items: center; 
 }
@@ -227,11 +227,5 @@ body {
 }
 .template-post{
     font-size: 20px;
-}
-.btn-postear{
-    width: 100px;
-    height: 30px;
-    border-radius: 25px;
-    font-size: 18px;
 }
 }
