@@ -15,27 +15,27 @@
     </nav>
   <main>
     <!-- Pantalla de Logueo -->
-      <section id="logueo" class="contenedor flex">
+      <section id="vista-logueo" class="contenedor flex">
           <img class="logo" src="./lib/imagenes/logo-principal.jpeg" >
           <form class="formulario flex">
             <input class="inputs flex" id="email" placeholder="ejemplo@hotmail.com" type="text">
             <input class="inputs flex" id="password" placeholder="Contraseña" type="password">
             <div id="botones-logueo" class="recuadro flex">
-              <button class= "buttons verde bold" type="submit" id="ingresar">INGRESA</button>
-              <p class="flex">¿No tienes una cuenta? <a href="#" id="registrar" class="azul bold">Regístrate</a></p>
+              <button class= "buttons verde bold" type="submit" id="btn-ingresar">INGRESA</button>
+              <p class="flex">¿No tienes una cuenta? <a href="#" id="enlace-registrar" class="azul bold">Regístrate</a></p>
               <p id="error" class="error"></p>
               <p id= "registro-exitoso"></p>
             </div>
           </form>
       </section>
       <!-- Pantalla de registro -->
-      <section id= "registro" class="hide registro flex">
+      <section id= "vista-registro" class="hide registro flex">
         <form class="formulario">
           <input class="inputs flex" id= "name" placeholder="Nombre" type="text">
           <input class="inputs flex" id= "new-email" placeholder="ejemplo@hotmail.com" type="email">
           <input class="inputs flex" id="new-password" placeholder="Contraseña nueva" type="password">
         </form>
-          <button class="buttons verde bold" type="submit" id="registrarte">REGISTRAR</button>
+          <button class="buttons verde bold" type="submit" id="btn-registrarte">REGISTRAR</button>
           <p class="error" id = "error-registro" > </p>  
       </section> 
       <!--Ventana modal-->
@@ -46,10 +46,11 @@
         </div>
     </section> -->
     <!-- Pantalla de inicio -->
-    <section id= "inicio" class="perfil flex hide">
+    <section id= "perfil" class="perfil flex hide">
       <p id= "bienvenida"></p>
       <textarea id="escribir-post" class= "text-area"></textarea>
       <input type="file" id="subir-imagen">
+      <img id="imagen-post" src="">
       <button class="btn-postear bold" type="submit" id="publicar-post">Publicar</button>
       <div id="post-publicados" class="posts"></div>
     </section>
