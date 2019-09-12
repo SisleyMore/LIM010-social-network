@@ -48,10 +48,6 @@ const obtenerLocalStorage = (string) => {
 const actualizarLocalStorage = (string, arr) => {
     localStorage.setItem(string, JSON.stringify(arr));
 }
-const agregarElementoAlArray = (arr, ele) => {
-    arr.push(ele);
-    return arr;
-}
 
 const eliminarElementoArray = (arr, indice) => {
     arr.splice(indice, 1);
@@ -77,7 +73,6 @@ btnRegistrarte.addEventListener('click', (e) => {
         newPassword.value = '';
         let usuariosRegistrados = obtenerLocalStorage('users');
         const usuarios = usuariosRegistrados.concat(users);
-        console.log(usuarios);
         actualizarLocalStorage('users', usuarios);
         registroExisto.innerHTML = 'Tu registro ha sido exitoso';
         vistaRegistro.classList.add('hide');
@@ -96,10 +91,6 @@ btnIngresar.addEventListener('click', (a) => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const usersLocalStorage = obtenerLocalStorage('users');
-    console.log(usersLocalStorage);
-    console.log(email)
-    console.log(password);
-
     for (let i = 0; i < usersLocalStorage.length; i++) {
         if (usersLocalStorage[i].emailUser === email && usersLocalStorage[i].passwordUser === password) {
         perfil.classList.remove('hide');
@@ -148,13 +139,9 @@ publicarPost.addEventListener('click', () => {
 postPublicados.addEventListener('click', (event) => {
     const obtenerId = event.target.id;
     const obtenerName = event.target.name;
-    console.log(obtenerId);
-    console.log(obtenerName);
     if (obtenerName == "remove") {
         const postGuardados = obtenerLocalStorage('post');
-        console.log(postGuardados);
-        console.log(postGuardados.splice(obtenerId,1));
-        console.log(postGuardados);
+        eliminarElementoArray(postGuardados, obtenerId);
         actualizarLocalStorage('post', postGuardados);
         postPublicados.innerHTML = '';
         for (let i = 0; i < postGuardados.length; i++) {
@@ -165,9 +152,8 @@ postPublicados.addEventListener('click', (event) => {
    }else if (obtenerName == "edit") {
         postGuardado[obtenerId].removeAttribute('readonly');
    }else if (obtenerName == "save"){
-       const postEditados = obtenerLocalStorage('post');
-        console.log(postEditados.splice(obtenerId,1,postGuardado[obtenerId].value));
-        console.log(postEditados);
+        const postEditados = obtenerLocalStorage('post');
+        guardarElementoArray(postEditados, obtenerId, postGuardado[obtenerId].value);
         actualizarLocalStorage('post', postEditados);
         postPublicados.innerHTML = '';
         for (let i = 0; i < postEditados.length; i++) {
@@ -178,11 +164,11 @@ postPublicados.addEventListener('click', (event) => {
    }
 });
 
-subirImagen.addEventListener('change', () =>{
-    alert('subiste una imagen');
-    postsLocal = JSON.parse(localStorage.getItem('post'));
-    // arrayPost.push({post : postsLocal, img: url})
-    const imagen = document.querySelector(postImagen);
-    console.log(imagen);
+// subirImagen.addEventListener('change', () =>{
+//     alert('subiste una imagen');
+//     postsLocal = JSON.parse(localStorage.getItem('post'));
+//     // arrayPost.push({post : postsLocal, img: url})
+//     const imagen = document.querySelector(postImagen);
+//     console.log(imagen);
     
-})
+// })
