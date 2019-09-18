@@ -1,60 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css" />
-  <title>Social Network</title>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <link rel="stylesheet" href="style.css" />
+ <title>Social Network</title>
 </head>
 <body>
-  <!-- Menú de navegación -->
-    <nav id="menu" class="menu-nav verde hide flex">
-      <p id= "nombre-usuario" class="bold usuario"></p>
-      <a href="#" id= "cerrar-sesion" class="sesion-cerrar">Cerrar sesión</a>
-    </nav>
-  <main>
-    <!-- Pantalla de Logueo -->
-      <section id="vista-logueo" class="contenedor flex">
-          <img class="logo" src="./lib/imagenes/logo-principal.jpeg" >
-          <form class="formulario flex">
-            <input class="inputs flex" id="email" placeholder="ejemplo@hotmail.com" type="text">
-            <input class="inputs flex" id="password" placeholder="Contraseña" type="password">
-            <div id="botones-logueo" class="recuadro flex">
-              <button class= "buttons verde bold" type="submit" id="btn-ingresar">INGRESA</button>
-              <p class="flex">¿No tienes una cuenta? <a href="#" id="enlace-registrar" class="azul bold">Regístrate</a></p>
-              <p id="error" class="error"></p>
-              <p id= "registro-exitoso"></p>
-            </div>
-          </form>
-      </section>
-      <!-- Pantalla de registro -->
-      <section id= "vista-registro" class="hide registro flex">
-        <form class="formulario">
-          <input class="inputs flex" id= "name" placeholder="Nombre" type="text">
-          <input class="inputs flex" id= "new-email" placeholder="ejemplo@hotmail.com" type="email">
-          <input class="inputs flex" id="new-password" placeholder="Contraseña nueva" type="password">
-        </form>
-          <button class="buttons verde bold" type="submit" id="btn-registrarte">REGISTRAR</button>
-          <p class="error" id = "error-registro" > </p>  
-      </section> 
-      <!--Ventana modal-->
-      <!-- <section id="modal" class="modal hide">
-        <div id="modalcontenido" class="modalcontenido">
-            <span class="cerrar" id="cerrar">&times;</span>
-            <p class="textModal">¡Se ha registrado exitosamente!</p>
-        </div>
-    </section> -->
-    <!-- Pantalla de inicio -->
-    <section id= "perfil" class="perfil flex hide">
-      <p id= "bienvenida"></p>
-      <textarea id="escribir-post" class= "text-area"></textarea>
-      <input type="file" id="subir-imagen">
-      <img id="imagen-post" src="">
-      <button class="btn-postear bold" type="submit" id="publicar-post">Publicar</button>
-      <div id="post-publicados" class="posts"></div>
-    </section>
-  </main>
-  <script type="module" src="main.js"></script>
+ <!-- Menú de navegación -->
+   <nav id="menu" class="menu-nav verde hide flex">
+     <p id= "nombre-usuario" class="bold usuario"></p>
+     <a href="#" id= "cerrar-sesion" class="sesion-cerrar">Cerrar sesión</a>
+   </nav>
+ <main>
+   <!-- Pantalla de Logueo -->
+     <section id="vista-logueo" class="contenedor flex">
+         <img alt="logo-principal" class="logo" src="img/logo-principal.jpeg" >
+         <form class="formulario flex">
+           <input class="inputs flex" id="email" placeholder="ejemplo@hotmail.com" type="text">
+           <input class="inputs flex" id="password" placeholder="Contraseña" type="password">
+           <div id="botones-logueo" class="recuadro flex">
+             <button class= "buttons verde bold" type="submit" id="btn-ingresar">INGRESA</button>
+             <p class="flex">¿No tienes una cuenta? <a href="#" id="enlace-registrar" class="azul bold">Regístrate</a></p>
+             <p id="error" class="error"></p>
+             <p id= "registro-exitoso"></p>
+           </div>
+         </form>
+     </section>
+     <!-- Pantalla de registro -->
+     <section id= "vista-registro" class="hide registro flex">
+       <form class="formulario">
+         <input class="inputs flex" id= "name" placeholder="Nombre" type="text">
+         <input class="inputs flex" id= "new-email" placeholder="ejemplo@hotmail.com" type="email">
+         <input class="inputs flex" id="new-password" placeholder="Contraseña nueva" type="password">
+       </form>
+         <button class="buttons verde bold" type="submit" id="btn-registrarte">REGISTRAR</button>
+         <p class="error" id = "error-registro" > </p>
+     </section>
+     <!--Ventana modal-->
+     <!-- <section id="modal" class="modal hide">
+       <div id="modalcontenido" class="modalcontenido">
+           <span class="cerrar" id="cerrar">&times;</span>
+           <p class="textModal">¡Se ha registrado exitosamente!</p>
+       </div>
+   </section> -->
+   <!-- Pantalla de inicio -->
+   <section id= "seccion-perfil" class="perfil flex hide">
+     <p id= "bienvenida"></p>
+     <textarea id="escribir-post" class= "text-area"></textarea>
+     <input type="file" id="subir-imagen">
+     <button class="btn-postear bold" type="submit" id="publicar-post">Publicar</button>
+     <div id="post-publicados" class="posts"></div>
+   </section>
+ </main>
+ <script type ="text/javascript" src="data.js"></script>
+ <script type ="text/javascript" src="main.js"></script>
 </body>
 </html>
